@@ -11,7 +11,10 @@ var LastSequenceColor;
 // *lISTEN FOR KEYPRESS FROM THE KEYBOARD
 // * This basically starts up the game
 
-$(document,".btn").keypress(function () {
+$(document).on("touchstart", function(e) {
+  alert("YEP!");
+});
+$(document).keypress(function () {
   if (!started) {
     $("h1").removeClass("blink");
     $(".rules").addClass("invisible");
