@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Simon</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+      rel="stylesheet"
+    />
+    <link
+    rel="stylesheet"
+    href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
+    <link rel="stylesheet" href="/resources/demos/style.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+      $(function () {
+        $("#dialog").dialog({
+          autoOpen: false,
+          show: {
+            effect: "blind",
+            duration: 1000,
+          },
+          hide: {
+            effect: "explode",
+            duration: 1000,
+          },
+        });
+        
+        $( "#opener" ).on( "click", function() {
+            $( "#dialog" ).dialog( "open" );
+          });
+          $(document).on("keydown",function (event) {
+          if (event.key == "Escape") {
+            $("#dialog").dialog("close");
+          }
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="dialog" title="Simon's Rules">
+      <ul>
+        <li>Simon Would Give You One Signal At a Time.</li>
+        <li>
+          You Have To Replicate All The Signals Given By Simon From The Start Of
+          The Sequence To The End Each Time.
+        </li>
+        <li>
+          Green Light Flashes when you've succesfully completed a Sequence, Then
+          You Would Be Taken To The Next Level
+        </li>
+        <li>You Lose When You Can't Keep Up With The Sequence.</li>
+        <li>A Red Light Flashes When You Lose</li>
+      </ul>
+    </div>
+    <div id="opener" class="help invisible">
+      <p>Click Here For Help</p>
+    </div>
+
+    <h1 id="level-title" class="add-margin blink"><span class="laptop">Press Any Key to Start</span><span class="mobile">Click Here To Start</span></h1>
+    <div id="dg" class="grid">
+      <div class="rules">
+        <h2>SIMON'S GAME</h2>
+        <ul>
+          <li>Press Any Key To Start.</li>
+          <li>Simon Would Give You One Signal At a Time.</li>
+          <li>
+            You Have To Replicate All The Signals Given By Simon From The Start Of
+            The Sequence To The End Each Time.
+          </li>
+          <li>
+            Green Light Flashes when you've succesfully completed a Sequence, Then
+            You Would Be Taken To The Next Level
+          </li>
+          <li>You Lose When You Can't Keep Up With The Sequence.</li>
+          <li>A Red Light Flashes When You Lose</li>
+        </ul>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div type="button" id="green" class="btn green clickable"></div>
+
+          <div type="button" id="red" class="btn red clickable" ></div>
+        </div>
+
+        <div class="row">
+          <div type="button" id="yellow" class="btn yellow clickable"></div>
+          <div type="button" id="blue" class="btn blue clickable" ></div>
+        </div>
+      </div>
+    </div>
+    <script src="./game.js"></script>
+  </body>
+</html>

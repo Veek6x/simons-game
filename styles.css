@@ -1,0 +1,171 @@
+body {
+  text-align: center;
+  background-color: #011f3f;
+}
+
+#level-title {
+  font-family: "Press Start 2P", cursive;
+  font-size: 3rem;
+  color: #f8f2d5;
+  line-height: 1.3;
+  margin-top: 50px;
+}
+.mobile{
+  display: none;
+}
+.add-margin {
+  margin: 1% 3% 5%;
+}
+
+.container {
+  display: block;
+  /* width: 60%; */
+  margin: auto;
+}
+
+.btn {
+  margin: 20px;
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  border: 10px solid black;
+  border-radius: 20%;
+}
+
+.game-over {
+  background-color: red;
+  opacity: 0.8;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.pressed {
+  box-shadow: 0 0 20px white;
+  background-color: grey;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.rules {
+  font-family: "Press Start 2P", cursive;
+  color: rgb(245, 203, 151);
+  text-align: left;
+}
+.rules li {
+  margin: 30px;
+  line-height: 2;
+}
+h2 {
+  text-align: center;
+}
+.blink {
+  animation: blinker 2s linear infinite;
+}
+.clickable {
+  pointer-events: none;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+.invisible {
+  display: none;
+}
+.help p {
+  margin: 0;
+  padding: 5px;
+  text-align: left;
+  font-family: "Press Start 2P", cursive;
+  font-size: 1em;
+  color: lawngreen;
+}
+.help p:hover {
+  cursor: pointer;
+}
+.success {
+  background-color: rgb(4, 159, 4);
+  opacity: 0.8;
+}
+#dialog li {
+  line-height: 1.4;
+  margin: 20px 0;
+}
+
+@media screen and (min-width:320px) and (max-width: 768px) {
+  body{
+    max-width: 800px;
+  }
+  #level-title {
+    margin-top: 30px;
+    font-size: 1em;
+    margin-bottom: 50px;
+  }
+  .laptop{
+    display: none;
+  }
+  .mobile{
+    display: inline;
+  }
+  #level-title:before{
+    content: "";
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .rules {
+    padding: 0;
+  }
+  h2 {
+    font-size: 1em;
+    margin-bottom: 50px;
+  }
+  .rules li {
+    margin: 10px 5px 10px 0;
+    line-height: 2;
+    font-size: 0.70em;
+    text-align: left;
+  }
+  .rules ul{
+    margin-bottom: 50px;
+  }
+  .btn {
+    margin: 5px;
+    height: 130px;
+    width: 130px;
+    border: 5px solid black;
+  }
+  .help p {
+    margin-bottom: 200px;
+    padding: 5px;
+    text-align: left;
+    font-family: "Press Start 2P", cursive;
+    font-size: 0.45em;
+    color: lawngreen;
+  }
+  
+}
+@media screen and (min-width: 769px) and (max-width: 1024px){
+  /* .btn {
+    margin: 5px;
+    height: 100px;
+    width: 100px;
+    border: 5px solid black;
+  } */
+}
