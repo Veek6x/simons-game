@@ -101,7 +101,6 @@ function checkAnswer(currentLevel) {
 //* PLAY SOUND EFFECTS
 function playSound(name) {
   var audio = new Audio("sounds/" + name + ".mp3");
-  console.log(name);
   audio.play();
 }
 
