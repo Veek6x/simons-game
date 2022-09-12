@@ -8,27 +8,41 @@ var started = false;
 var level = 0;
 var LastSequenceColor;
 
-// *lISTEN FOR KEYPRESS FROM THE KEYBOARD
+// *lISTEN FOR KEYPRESS FROM THE KEYBOARD AND ALSO TOUCH FROM TOUCHSCREEN DEVICES
 // * This basically starts up the game
 
-$(document).on("touchstart", function(e) {
-  alert("YEP!");
-});
-$(document).keypress(function () {
-  if (!started) {
-    $("h1").removeClass("blink");
-    $(".rules").addClass("invisible");
-    $("#dg").removeClass("grid");
-    $(".help").removeClass("invisible");
-    $(".btn").removeClass("clickable");
-    $("#level-title").text("Level " + level);
-    nextSequence();
-    started = true;
+$(document).on("keypress touchstart", function (event) {
+  if (event.type == "touchstart") {
+    $(this).off("keypress");
+    console.log("Touch screen detected");
+    if (!started) {
+      $("h1").removeClass("blink");
+      $(".rules").addClass("invisible");
+      $("#dg").removeClass("grid");
+      $(".help").removeClass("invisible");
+      $(".btn").removeClass("clickable");
+      $("#level-title").text("Level " + level);
+      nextSequence();
+      started = true;
+    }
+  } else if (event.type == "keypress") {
+    $(this).off("touchstart");
+    console.log("Non-Touch screen detected");
+    if (!started) {
+      $("h1").removeClass("blink");
+      $(".rules").addClass("invisible");
+      $("#dg").removeClass("grid");
+      $(".help").removeClass("invisible");
+      $(".btn").removeClass("clickable");
+      $("#level-title").text("Level " + level);
+      nextSequence();
+      started = true;
+    }
   }
 });
 
 //* LISTEN FOR CLICKS ON BUTTONS
-$(".btn").on("click touchstart", function () {
+$(".btn").on("click", function () {
   var userChosenColor = $(this).attr("id");
   userClickedPatterns.push(userChosenColor);
   playSound(userChosenColor);
@@ -87,6 +101,7 @@ function checkAnswer(currentLevel) {
 //* PLAY SOUND EFFECTS
 function playSound(name) {
   var audio = new Audio("sounds/" + name + ".mp3");
+  console.log(name);
   audio.play();
 }
 
