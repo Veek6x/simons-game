@@ -9,7 +9,7 @@ var LastSequenceColor;
 
 // *lISTEN FOR KEYPRESS FROM THE KEYBOARD AND ALSO TOUCH FROM TOUCHSCREEN DEVICES
 // * This basically starts up the game
-$(document).on("keypress touchstart", function (event) {
+$("#level-title").on("click touchstart", function (event) {
   if (event.type == "touchstart") {
     $(this).off("keypress");
     console.log("Touch screen detected");
@@ -24,10 +24,11 @@ $(document).on("keypress touchstart", function (event) {
       nextSequence();
       started = true;
     }
-  } else if (event.type == "keypress") {
+  } else if (event.type == "click") {
     $(this).off("touchstart");
     console.log("Non-Touch screen detected");
     if (!started) {
+      $(".container").removeClass("invisible");
       $("h1").removeClass("blink");
       $(".rules").addClass("invisible");
       $("#dg").removeClass("grid");
@@ -89,7 +90,7 @@ function checkAnswer(currentLevel) {
       $("body").removeClass("game-over");
     }, 300);
     $("#level-title").html(
-      "Level " + level + "<br>" + "Game Over, Press Any Key to Restart"
+      "Level " + level + "<br>" + "Game Over, Click Here to Restart"
     );
     $("h1").addClass("blink");
     showLastSequenceColor();

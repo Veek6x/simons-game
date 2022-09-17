@@ -9,8 +9,14 @@ body {
   color: #f8f2d5;
   line-height: 1.3;
   margin-top: 50px;
+  text-shadow: 0 1px 0 green, 0 2px 0 green, 0 3px 0 green,
+      0 4px 0 green, 0 5px 0 green, 0 6px 0 green, 0 7px 0 green,
+      0 8px 0 green, 0 9px 0 green, 0 50px 30px rgba(0, 0, 0, 0.3);
 }
-.mobile{
+#level-title:hover {
+  cursor: pointer;
+}
+.mobile {
   display: none;
 }
 .add-margin {
@@ -19,8 +25,7 @@ body {
 
 .container {
   display: block;
-  /* width: 60%; */
-  margin: auto;
+  margin-top: 80px;
 }
 
 .btn {
@@ -57,15 +62,11 @@ body {
   box-shadow: 0 0 20px white;
   background-color: grey;
 }
-.grid {
-  /* display: grid; */
-  grid-template-columns: 1fr 1fr;
-}
 .rules {
   font-family: "Press Start 2P", cursive;
   color: rgb(245, 203, 151);
   text-align: left;
-  padding: ;
+  margin-top: 160px;
 }
 .rules li {
   margin: 30px;
@@ -73,7 +74,26 @@ body {
 }
 h2 {
   text-align: center;
+  color: white;
 }
+.pop-up {
+  animation: pop-up 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+@keyframes pop-up {
+  0% {
+    transform: translateY(0);
+    transform-origin: 50% 50%;
+    text-shadow: none;
+  }
+  100% {
+    transform: translateY(-50px);
+    transform-origin: 50% 50%;
+    text-shadow: 0 1px 0 red, 0 2px 0 red, 0 3px 0 red,
+      0 4px 0 red, 0 5px 0 red, 0 6px 0 red, 0 7px 0 red,
+      0 8px 0 red, 0 9px 0 red, 0 50px 30px rgba(0, 0, 0, 0.3);
+  }
+}
+
 .blink {
   animation: blinker 2s linear infinite;
 }
@@ -83,6 +103,9 @@ h2 {
 @keyframes blinker {
   50% {
     opacity: 0;
+    text-shadow: 0 1px 0 red, 0 2px 0 red, 0 3px 0 red,
+      0 4px 0 red, 0 5px 0 red, 0 6px 0 red, 0 7px 0 red,
+      0 8px 0 red, 0 9px 0 red, 0 50px 30px rgba(0, 0, 0, 0.3);
   }
 }
 .invisible {
@@ -108,65 +131,46 @@ h2 {
   margin: 20px 0;
 }
 
-@media screen and (min-width:320px) and (max-width: 768px) {
-  body{
-    max-width: 800px;
-  }
+@media screen and (min-width: 320px) and (max-width: 768px) {
   #level-title {
     margin-top: 30px;
     font-size: 1em;
-    margin-bottom: 50px;
+    line-height: 2;
   }
-  .laptop{
+  .laptop {
     display: none;
   }
-  .mobile{
+  .mobile {
     display: inline;
   }
-  #level-title:before{
+  #level-title:before {
     content: "";
   }
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-  .rules {
-    padding: 0;
+  .container {
+    margin-top: 100px;
   }
   h2 {
     font-size: 1em;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
   }
   .rules li {
-    margin: 10px 5px 10px 0;
+    margin: 10px 5px 30px 0;
     line-height: 2;
-    font-size: 0.70em;
+    font-size: 0.7em;
     text-align: left;
   }
-  .rules ul{
-    margin-bottom: 50px;
-  }
   .btn {
-    margin: 5px;
+    margin: 15px;
     height: 130px;
     width: 130px;
     border: 5px solid black;
   }
   .help p {
-    margin-bottom: 200px;
+    margin-bottom: 50px;
     padding: 5px;
     text-align: left;
     font-family: "Press Start 2P", cursive;
-    font-size: 0.45em;
+    font-size: 0.8em;
     color: lawngreen;
   }
-  
-}
-@media screen and (min-width: 769px) and (max-width: 1024px){
-  /* .btn {
-    margin: 5px;
-    height: 100px;
-    width: 100px;
-    border: 5px solid black;
-  } */
 }
