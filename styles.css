@@ -159,6 +159,9 @@ h2 {
     font-size: 0.7em;
     text-align: left;
   }
+  ul{
+    padding-left: 20px;
+  }
   .btn {
     margin: 15px;
     height: 130px;
