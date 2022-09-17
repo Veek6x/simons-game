@@ -58,13 +58,14 @@ body {
   background-color: grey;
 }
 .grid {
-  display: grid;
+  /* display: grid; */
   grid-template-columns: 1fr 1fr;
 }
 .rules {
   font-family: "Press Start 2P", cursive;
   color: rgb(245, 203, 151);
   text-align: left;
+  padding: ;
 }
 .rules li {
   margin: 30px;
