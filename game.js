@@ -14,6 +14,7 @@ $(document).on("keypress touchstart", function (event) {
     $(this).off("keypress");
     console.log("Touch screen detected");
     if (!started) {
+      $(".container").removeClass("invisible");
       $("h1").removeClass("blink");
       $(".rules").addClass("invisible");
       $("#dg").removeClass("grid");
