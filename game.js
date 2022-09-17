@@ -1,5 +1,4 @@
 // ! OPTIMIZE CODE FOR MOBILE AND TABLET
-// ! DISPLAY LAST COLOUR OUTPUT WHEN USER FAILS
 
 var userClickedPatterns = [];
 var buttonColours = ["red", "blue", "green", "yellow"];
@@ -10,7 +9,6 @@ var LastSequenceColor;
 
 // *lISTEN FOR KEYPRESS FROM THE KEYBOARD AND ALSO TOUCH FROM TOUCHSCREEN DEVICES
 // * This basically starts up the game
-
 $(document).on("keypress touchstart", function (event) {
   if (event.type == "touchstart") {
     $(this).off("keypress");
@@ -41,7 +39,7 @@ $(document).on("keypress touchstart", function (event) {
   }
 });
 
-//* LISTEN FOR CLICKS ON BUTTONS
+//* LISTEN FOR CLICKS ON BUTTONS BY THE USERS
 $(".btn").on("click", function () {
   var userChosenColor = $(this).attr("id");
   userClickedPatterns.push(userChosenColor);
@@ -62,8 +60,8 @@ function nextSequence() {
     .fadeIn(300)
     .fadeOut(400)
     .fadeIn(300);
-  playSound(randomChosenColour);
-  LastSequenceColor = randomChosenColour;
+    playSound(randomChosenColour);
+    LastSequenceColor = randomChosenColour;
 }
 
 // *VALIDATE CLICK SEQUENCE FROM USER
