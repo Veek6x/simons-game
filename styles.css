@@ -41,7 +41,6 @@ body {
   background-color: red;
   opacity: 0.8;
 }
-
 .red {
   background-color: red;
 }
@@ -61,6 +60,10 @@ body {
 .pressed {
   box-shadow: 0 0 20px white;
   background-color: grey;
+  border: 10px solid white;
+}
+.simon-move{
+  border: 10px solid white;
 }
 .rules {
   font-family: "Press Start 2P", cursive;
@@ -90,7 +93,7 @@ h2 {
     transform-origin: 50% 50%;
     text-shadow: 0 1px 0 red, 0 2px 0 red, 0 3px 0 red,
       0 4px 0 red, 0 5px 0 red, 0 6px 0 red, 0 7px 0 red,
-      0 8px 0 red, 0 9px 0 red, 0 50px 30px rgba(0, 0, 0, 0.3);
+      0 8px 0 red, 0 9px 0 red;
   }
 }
 

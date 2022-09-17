@@ -20,6 +20,7 @@ $("#level-title").on("click touchstart", function (event) {
       $("#dg").removeClass("grid");
       $(".help").removeClass("invisible");
       $(".btn").removeClass("clickable");
+      $("body").removeClass("game-over");
       $("#level-title").text("Level " + level);
       nextSequence();
       started = true;
@@ -34,6 +35,7 @@ $("#level-title").on("click touchstart", function (event) {
       $("#dg").removeClass("grid");
       $(".help").removeClass("invisible");
       $(".btn").removeClass("clickable");
+      $("body").removeClass("game-over");
       $("#level-title").text("Level " + level);
       nextSequence();
       started = true;
@@ -50,7 +52,7 @@ $(".btn").on("click", function () {
   checkAnswer(userClickedPatterns.length - 1);
 });
 
-//* CREATE RANDOM COLOUR PATTERNS (SIMON'S MOVES)
+//* CREATE RANDOM COLOUR SEQUENCE (SIMON'S MOVES)
 function nextSequence() {
   userClickedPatterns = [];
   level++;
@@ -58,18 +60,22 @@ function nextSequence() {
   var randomNumber = Math.floor(Math.random() * 4);
   var randomChosenColour = buttonColours[randomNumber];
   gamePattern.push(randomChosenColour);
-  $("#" + randomChosenColour)
-    .fadeIn(300)
-    .fadeOut(400)
-    .fadeIn(300);
-    playSound(randomChosenColour);
-    LastSequenceColor = randomChosenColour;
+  setTimeout(() => {
+    $("#" + randomChosenColour)
+    .addClass("simon-move")
+    .fadeOut(100)
+    .fadeIn(400);
+  }, 1000);
+  setTimeout(function () {
+    $("#" + randomChosenColour).removeClass("simon-move");
+  }, 1400);
+  playSound(randomChosenColour);
+  LastSequenceColor = randomChosenColour;
 }
 
 // *VALIDATE CLICK SEQUENCE FROM USER
 function checkAnswer(currentLevel) {
   if (gamePattern[currentLevel] === userClickedPatterns[currentLevel]) {
-    // console.log("success");
     if (userClickedPatterns.length === gamePattern.length) {
       setTimeout(function () {
         $("body").addClass("success");
@@ -86,9 +92,6 @@ function checkAnswer(currentLevel) {
     playSound("wrong");
     $("body").addClass("game-over");
     $("h1").removeClass("add-margin");
-    setTimeout(function () {
-      $("body").removeClass("game-over");
-    }, 300);
     $("#level-title").html(
       "Level " + level + "<br>" + "Game Over, Click Here to Restart"
     );
@@ -119,15 +122,18 @@ function gameOver() {
   started = false;
   $(".btn").addClass("clickable");
 }
+
 function showLastSequenceColor() {
   setTimeout(() => {
     $("#" + LastSequenceColor)
       .fadeIn(800)
       .fadeOut(600)
-      .fadeIn(300)
-      .fadeOut(300)
-      .fadeIn(300)
-      .fadeOut(300)
-      .fadeIn(500);
-  }, 600);
+      .fadeIn(600)
+      .fadeOut(600)
+      .fadeIn(600)
+      .addClass("simon-move");
+}, 600 );
+setTimeout(() => {
+  $(".btn").removeClass("simon-move");
+}, 2950);
 }
