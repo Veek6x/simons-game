@@ -1,5 +1,3 @@
-// ! OPTIMIZE CODE FOR MOBILE AND TABLET
-
 var userClickedPatterns = [];
 var buttonColours = ["red", "blue", "green", "yellow"];
 var gamePattern = [];
