@@ -10,7 +10,6 @@ var LastSequenceColor;
 $("#level-title").on("click touchstart", function (event) {
   if (event.type == "touchstart") {
     $(this).off("keypress");
-    console.log("Touch screen detected");
     if (!started) {
       $(".container").removeClass("invisible");
       $("h1").removeClass("blink");
@@ -25,7 +24,6 @@ $("#level-title").on("click touchstart", function (event) {
     }
   } else if (event.type == "click") {
     $(this).off("touchstart");
-    console.log("Non-Touch screen detected");
     if (!started) {
       $(".container").removeClass("invisible");
       $("h1").removeClass("blink");
@@ -86,7 +84,6 @@ function checkAnswer(currentLevel) {
       }, 1100);
     }
   } else {
-    console.log("WRONG");
     playSound("wrong");
     $("body").addClass("game-over");
     $("h1").removeClass("add-margin");

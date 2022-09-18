@@ -179,4 +179,7 @@ h2 {
     font-size: 0.8em;
     color: lawngreen;
   }
+  .simon-move{
+    border: 10px solid white;
+  }
 }
